@@ -112,10 +112,8 @@ public class PDFView extends com.github.barteksc.pdfviewer.PDFView implements
         this.setAlpha(0);
         configurator
                 .defaultPage(0)
-                .swipeHorizontal(true)
-                .pageSnap(true)
-                .autoSpacing(true)
-                .pageFling(true)
+                .swipeHorizontal(false)
+                .spacing(10)
                 .fitEachPage(true)
                 .onLoad(this)
                 .onError(this)
