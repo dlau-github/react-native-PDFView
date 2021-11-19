@@ -3,7 +3,7 @@
 // Definitions by: Uilque Messias <https://github.com/uqmessias>
 // TypeScript Version: 3.2.1
 
-import * as React from "react";
+import { Component } from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
 export interface PDFViewUrlProps {
@@ -77,7 +77,11 @@ interface PDFViewProps {
    *   - "libraryDirectory"
    *   - "tempDirectory"
    */
-  fileFrom?: "bundle" | "documentsDirectory" | "libraryDirectory" | "tempDirectory";
+  fileFrom?:
+    | "bundle"
+    | "documentsDirectory"
+    | "libraryDirectory"
+    | "tempDirectory";
 
   urlProps?: PDFViewUrlProps;
 
@@ -98,6 +102,13 @@ interface PDFViewProps {
    * A style for the PDFView
    */
   style?: StyleProp<ViewStyle>;
+
+  /**
+   * Used to locate in end-to-end tests
+   */
+  testID?: string;
 }
 
-export default class PDFView extends React.Component<PDFViewProps, {}> {}
+export default class PDFView extends Component<PDFViewProps, {}> {
+  reload: () => void;
+}
